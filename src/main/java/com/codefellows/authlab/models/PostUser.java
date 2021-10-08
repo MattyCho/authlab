@@ -1,9 +1,7 @@
 package com.codefellows.authlab.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class PostUser {
@@ -13,6 +11,9 @@ public class PostUser {
     Long id;
     String username;
     public String password;
+
+    @OneToMany(mappedBy = "thisPostUser")
+    List<Post> posts;
 
     protected PostUser(){
     }
